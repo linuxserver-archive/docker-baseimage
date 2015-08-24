@@ -13,3 +13,4 @@ User gid:    $(id -g abc)
 "
 chown abc:abc /app
 chown abc:abc /config
+chown abc:abc /defaults

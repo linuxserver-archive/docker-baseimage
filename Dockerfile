@@ -5,5 +5,5 @@ RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
 ADD sources.list /etc/apt/sources.list
 ADD 10_add_user_abc.sh /etc/my_init.d/10_add_user_abc.sh 
 ADD 20_apt_update.sh /etc/my_init.d/20_apt_update.sh
-RUN chmod +x /etc/my_init.d/10_add_user_abc.sh /etc/my_init.d/15_apt_update.sh
+RUN chmod +x /etc/my_init.d/10_add_user_abc.sh /etc/my_init.d/20_apt_update.sh
 CMD ["/sbin/my_init"]

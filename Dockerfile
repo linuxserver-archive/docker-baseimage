@@ -3,6 +3,6 @@ ENV DEBIAN_FRONTEND="noninteractive" HOME="/root" TERM="screen"
 RUN useradd -u 911 -U -s /bin/false abc && usermod -G users abc && mkdir -p /app /config /defaults
 ADD sources.list /etc/apt/sources.list
 ADD 10_add_user_abc.sh /etc/my_init.d/10_add_user_abc.sh 
-ADD 15_apt_update.sh /etc/my_init.d/15_apt_update.sh
+ADD 15_apt_update.sh /etc/my_init.d/20_apt_update.sh
 RUN chmod +x /etc/my_init.d/10_add_user_abc.sh /etc/my_init.d/15_apt_update.sh
 CMD ["/sbin/my_init"]

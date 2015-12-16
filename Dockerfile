@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.17
+FROM phusion/baseimage:0.9.18
 ENV DEBIAN_FRONTEND="noninteractive" HOME="/root" TERM="xterm" 
 RUN useradd -u 911 -U -d /config -s /bin/false abc && usermod -G users abc && mkdir -p /app /config /defaults
 ADD sources.list /etc/apt/sources.list

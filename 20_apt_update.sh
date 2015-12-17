@@ -1,27 +1,37 @@
 #!/bin/bash
 
-
+# test conditions for aptlist and base aptilist
 [ "$BASE_APTLIST" ] && APTLIST="$BASE_APTLIST ""$APTLIST"
-#[ "$APTLIST" ] && (echo "We are now refreshing packages from apt repositorys, this *may* take a while" && apt-get update -qq && apt-get --only-upgrade install -yqq $APTLIST)
+[ -z "$APTLIST" ] && exit 0
 
-[ "$APTLIST" ] && apt-get update -yqq && 
-if [ $? != 0 ]; then
-	echo "The Dynamic apt mirrors seems to be not working. Trying to fix with method one"
-	apt-get clean && rm -rf /var/lib/apt/lists/*
-	apt-get update -yf 
-	if [ $? != 0 ]; then
-		echo "Method one seemed to have failed. Lets try method 2."
-		apt-get clean && rm -rf /var/lib/apt/lists/*
-		mv -v /etc/apt/sources.list /etc/apt/sources.list.org
-		mv -v /etc/apt/sources.list.failover /etc/apt/sources.list
-		apt-get update -yf 
-	    if [ $? != 0 ]; then
-	    	echo "I have tryed everything, nothing works. Provide logs to #linuxserver.io@freenode"
-	    	exit 1
-	    fi
-	fi
+# set our functions
+reset_mirrors(){
+[[ -f /etc/apt/sources.list.d/backup_sources.list ]] && rm /etc/apt/sources.list.d/backup_sources.list
+sed -i '{/mirrors.ubuntu.com/ s/^#//}' /etc/apt/sources.list
+  }
 
+delete_mirrors(){
+cp /defaults/backup_sources.list /etc/apt/sources.list.d/backup_sources.list 
+sed -i '/^#/! {/mirrors.ubuntu.com/ s/^/#/}' /etc/apt/sources.list  
+  }
+
+
+# reset to standard mirror setup
+reset_mirrors
+
+echo "We are now refreshing packages from apt repositorys, this *may* take a while"
+
+# try apt-get update and output exit code to variable
+unset RETVAL
+apt-get clean
+apt-get update -qq 
+RETVAL=$?
+
+# if update with mirrors failed, try backup list
+if [ "$RETVAL" -gt "0" ]; then
+delete_mirrors
+apt-get clean
+apt-get update -qq
 fi
 
-
-sleep 1s
+apt-get --only-upgrade install -yqq $APTLIST

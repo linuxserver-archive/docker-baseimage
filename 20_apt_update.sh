@@ -22,13 +22,12 @@ reset_mirrors
 echo "We are now refreshing packages from apt repositorys, this *may* take a while"
 
 # try apt-get update and output exit code to variable
-unset RETVAL
 apt-get clean
 apt-get update -qq 
-RETVAL=$?
+
 
 # if update with mirrors failed, try backup list
-if [ "$RETVAL" -gt "0" ]; then
+if [ "$?" != "0" ]; then
 delete_mirrors
 apt-get clean
 apt-get update -qq

@@ -2,7 +2,7 @@
 
 # test conditions for aptlist and base aptilist
 [ "$BASE_APTLIST" ] && APTLIST="$BASE_APTLIST ""$APTLIST"
-[ -z "$APTLIST" ] && exit 0
+[ "$APTLIST" ] || exit 0
 
 # set our functions
 reset_mirrors(){

@@ -20,9 +20,6 @@ sed -i '/^#/! {/mirrors.ubuntu.com/ s/^/#/}' /etc/apt/sources.list
   }
 
 reset_mirrors(){
-apt-get clean
-rm -rf /var/lib/apt/lists/*
-mkdir -p /var/lib/apt/lists/partial
 sed -i '{/mirrors.ubuntu.com/ s/^#//}' /etc/apt/sources.list
   }
 
@@ -41,6 +38,7 @@ update_apt
 fi
 
 apt-get --only-upgrade install -yqq $APTLIST
+
 
 
 

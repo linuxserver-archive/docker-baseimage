@@ -1,6 +1,10 @@
 #!/bin/bash
 
+<<<<<<< HEAD
 # test conditions for aptlist and base aptilist
+=======
+[ "$ADVANCED_DISABLEUPDATES" ] && exit 0
+>>>>>>> refs/remotes/origin/master
 [ "$BASE_APTLIST" ] && APTLIST="$BASE_APTLIST ""$APTLIST"
 [ "$APTLIST" ] || exit 0
 

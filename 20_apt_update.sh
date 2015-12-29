@@ -15,7 +15,7 @@ apt-get update -qq
 UPDATE_RETVAL=$?
 apt-get --only-upgrade install -yqq $APTLIST
 UPGRADE_RETVAL=$?
-RETVAL=$(($UPDATE_RETVAL+$UPGRADE_RETVAL))
+RETVAL=$((UPDATE_RETVAL+UPGRADE_RETVAL))
 }
 
 delete_mirrors(){

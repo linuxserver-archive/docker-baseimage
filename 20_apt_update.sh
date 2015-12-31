@@ -12,27 +12,25 @@
 update_apt(){
 # unset RETVAL UPDATE_RETVAL UPGRADE_RETVAL
 apt-get update -qq
-# UPDATE_RETVAL=$?
+UPDATE_RETVAL=$?
 apt-get --only-upgrade install -yqq $APTLIST
-# UPGRADE_RETVAL=$?
-# RETVAL=$((UPDATE_RETVAL+UPGRADE_RETVAL))
+UPGRADE_RETVAL=$?
+RETVAL=$((UPDATE_RETVAL+UPGRADE_RETVAL))
 }
 
-reset_mirrors(){
+remove_build_list(){
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 mkdir -p /var/lib/apt/lists/partial
-# rm /etc/apt/sources.list.d/build.list
-sed -i '{/mirrors.ubuntu.com/ s/^#//}' /etc/apt/sources.list
+rm /etc/apt/sources.list.d/build.list
   }
 
 # reset to standard mirror setup
-# [[ -f /etc/apt/sources.list.d/build.list ]] && reset_mirrors
+# [[ -f /etc/apt/sources.list.d/build.list ]] && remove_build_list
 
 echo "We are now refreshing packages from apt repositorys, this *may* take a while"
 
 # try initial update and upgrade.
-reset_mirrors
 update_apt
 
 

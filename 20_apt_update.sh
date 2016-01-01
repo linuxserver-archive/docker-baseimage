@@ -11,7 +11,7 @@ python3 /app/aptselect/apt-select.py -t 3 -m up-to-date
 
 echo "We are now refreshing packages from apt repositorys, this *may* take a while"
 apt-get update -qq
-apt-get --only-upgrade install -yqq $APTLIST || echo "Something went wrong with the update, please try again later or contact your nearest starfleet officer" && echo "put on your best frock, serve some nibble, let's party baby, the update routine performed successfully"
+apt-get --only-upgrade install -yqq $APTLIST || echo "Something went wrong with the update, please try again later" && exit
 
 
 

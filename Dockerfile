@@ -5,7 +5,7 @@ COPY build.list* /etc/apt/sources.list
 RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold" && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN apt-get update && apt-get install -y python3-bs4 && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 COPY *.sh /etc/my_init.d/
-COPY apt-select /app/appselect 
+COPY apt_select /app/aptselect 
 RUN chmod +x /etc/my_init.d/*.sh
 CMD ["/sbin/my_init"]
 

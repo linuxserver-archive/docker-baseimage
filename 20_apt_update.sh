@@ -13,8 +13,8 @@ python3 /app/aptselect/apt-select.py -t 3 -m up-to-date
 
 # check for and install any updates
 echo "We are now refreshing packages from apt repositorys, this *may* take a while"
-apt-get update -q
-apt-get --only-upgrade install -yq $APTLIST || echo "Something went wrong with the update, please try again later" && exit
+apt-get update -qq
+apt-get --only-upgrade install -yqq $APTLIST || echo "Something went wrong with the update, please try again later" && exit
 
 
 

@@ -12,7 +12,7 @@ python3 /app/aptselect/apt-select.py -t 3 -m up-to-date
 [[ -f /defaults/sources.list ]] && mv /defaults/sources.list /etc/apt/sources.list
 
 # check for and install any updates
-echo "We are now refreshing packages from apt repositorys, this *may* take a while"
+echo "We are now refreshing packages from apt repositories, this *may* take a while"
 apt-get update -qq
 apt-get --only-upgrade install -yqq $APTLIST || echo "Something went wrong with the update, please try again later" && exit
 

@@ -1,9 +1,7 @@
-deb http://gb.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse
-deb-src http://gb.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse
-
-deb http://gb.archive.ubuntu.com/ubuntu/ trusty-updates main restricted universe multiverse
-deb-src http://gb.archive.ubuntu.com/ubuntu/ trusty-updates main restricted universe multiverse
-
-deb http://gb.archive.ubuntu.com/ubuntu/ trusty-security main restricted universe multiverse
-deb-src http://gb.archive.ubuntu.com/ubuntu/ trusty-security main restricted universe multiverse
-
+#Thees Mirrors should be used for DockerBuild only. It will get replaced with a faster image from local sources on build.
+deb http://apt.linuxserver.io/ubuntu/ trusty main restricted universe multiverse
+deb-src http://apt.linuxserver.io/ubuntu/ trusty main restricted universe multiverse
+deb http://apt.linuxserver.io/ubuntu/ trusty-updates main restricted universe multiverse
+deb-src http://apt.linuxserver.io/ubuntu/ trusty-updates main restricted universe multiverse
+deb http://apt.linuxserver.io/ubuntu/ trusty-security main restricted universe multiverse
+deb-src http://apt.linuxserver.io/ubuntu/ trusty-security main restricted universe multiverse

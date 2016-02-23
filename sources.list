@@ -1,4 +1,9 @@
-#Thees Mirrors should be used for DockerBuild only. It will get replaced with a faster image from local sources on build.
+####################################################################################
+#######  These repos should only be used for building docker containers      #######
+#######  on premise by lsio and on lsio's servers, the may not preform well  #######
+#######  from your home.                                                     #######
+####################################################################################
+
 deb http://apt.linuxserver.io/ubuntu/ trusty main restricted universe multiverse
 deb-src http://apt.linuxserver.io/ubuntu/ trusty main restricted universe multiverse
 deb http://apt.linuxserver.io/ubuntu/ trusty-updates main restricted universe multiverse

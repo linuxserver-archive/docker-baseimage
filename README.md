@@ -5,4 +5,4 @@
 If you want to comment\contribute to our work, feel free to join us at out irc channel:
 [IRC](https://www.linuxserver.io/index.php/irc/) on freenode at `#linuxserver.io` or visit our website at [https://linuxserver.io](https://linuxserver.io)
 
-This change is only to test stuff...
+This change is only to test stuff.

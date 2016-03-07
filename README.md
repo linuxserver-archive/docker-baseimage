@@ -5,6 +5,5 @@
 If you want to comment\contribute to our work, feel free to join us at out irc channel:
 [IRC](https://www.linuxserver.io/index.php/irc/) on freenode at `#linuxserver.io` or visit our website at [https://linuxserver.io](https://linuxserver.io).
 . 
-BLAH, might be handy to have the message, especially if work in variables somehow.
 One need to install docker first.!
 .

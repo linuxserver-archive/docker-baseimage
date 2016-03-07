@@ -5,7 +5,4 @@
 If you want to comment\contribute to our work, feel free to join us at out irc channel:
 [IRC](https://www.linuxserver.io/index.php/irc/) on freenode at `#linuxserver.io` or visit our website at [https://linuxserver.io](https://linuxserver.io).
 . 
-One need to install docker first.!
-Test to see if git needs commit message returned from jenkins.
-Test if it boots properly aswell
-.aa remember repo name!
+FFS!

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+exit 100
 
 PUID=${PUID:-911}
 PGID=${PGID:-911}

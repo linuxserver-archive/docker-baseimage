@@ -1,5 +1,5 @@
 #!/bin/bash
-exit 47
+
 # test if we need to run the update scripts
 [ "$ADVANCED_DISABLEUPDATES" ] && exit 0
 [ "$BASE_APTLIST" ] && APTLIST="$BASE_APTLIST ""$APTLIST"

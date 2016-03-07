@@ -14,4 +14,4 @@ RUN useradd -u 911 -U -d /config -s /bin/false abc && \
       apt-get clean && \
       rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 CMD ["/sbin/my_init"]
-BLAH
+WORKDIR /blah

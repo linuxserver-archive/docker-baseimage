@@ -8,4 +8,4 @@ If you want to comment\contribute to our work, feel free to join us at out irc c
 One need to install docker first.!
 Test to see if git needs commit message returned from jenkins.
 Test if it boots properly aswell
-.aa
+.aa remember repo name!

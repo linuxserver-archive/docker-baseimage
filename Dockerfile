@@ -13,5 +13,5 @@ RUN useradd -u 911 -U -d /config -s /bin/false abc && \
       chmod +x /etc/my_init.d/*.sh && \
       apt-get clean && \
       rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-CMD ["/sbin/my_init"]
+CMD ["/banana"]
 WORKDIR /blah

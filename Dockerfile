@@ -1,5 +1,6 @@
 FROM phusion/baseimage:0.9.18
-ENV DEBIAN_FRONTEND="noninteractive" HOME="/root" TERM="xterm"
+ARG DEBIAN_FRONTEND="noninteractive"
+ENV HOME="/root" TERM="xterm"
 COPY sources.list /etc/apt/sources.list
 COPY *.sh /etc/my_init.d/
 RUN useradd -u 911 -U -d /config -s /bin/false abc && \

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/with-contenv bash
 
 # test if we need to run the update scripts
 [ "$ADVANCED_DISABLEUPDATES" ] && exit 0

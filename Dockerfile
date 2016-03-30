@@ -3,8 +3,9 @@ MAINTAINER lonix
 ENV HOME="/root" TERM="xterm"
 ENTRYPOINT ["/init"]
 COPY root /
-RUN && \
 ARG DEBIAN_FRONTEND="noninteractive" 
+
+RUN && \
 useradd -u 911 -U -d /config -s /bin/false abc && \
 usermod -G users abc && \
 mkdir -p /app/aptselect /config /defaults && \

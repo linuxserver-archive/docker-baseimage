@@ -5,8 +5,7 @@ ENTRYPOINT ["/init"]
 COPY root /
 ARG DEBIAN_FRONTEND="noninteractive" 
 
-RUN && \
-useradd -u 911 -U -d /config -s /bin/false abc && \
+RUN useradd -u 911 -U -d /config -s /bin/false abc && \
 usermod -G users abc && \
 mkdir -p /app/aptselect /config /defaults && \
 curl -L https://github.com/just-containers/s6-overlay/releases/download/v1.17.2.0/s6-overlay-amd64.tar.gz | tar xvz -C / && \

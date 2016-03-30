@@ -1,16 +1,18 @@
-FROM phusion/baseimage:0.9.18
+FROM ubuntu:16.04
+MAINTAINER lonix
 ENV DEBIAN_FRONTEND="noninteractive" HOME="/root" TERM="xterm"
-COPY sources.list /etc/apt/sources.list
-COPY *.sh /etc/my_init.d/
-RUN useradd -u 911 -U -d /config -s /bin/false abc && \
-      usermod -G users abc && \
-      mkdir -p /app/aptselect /config /defaults && \
-      LATEST_TAG=$(curl -sX GET "https://api.github.com/repos/jblakeman/apt-select/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]') && \
-      curl -L https://github.com/jblakeman/apt-select/archive/${LATEST_TAG}.tar.gz | tar xvz -C /app/aptselect --strip-components=1 && \
-      apt-get update && \
-      apt-get install -y python3-bs4 && \
-      apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
-      chmod +x /etc/my_init.d/*.sh && \
-      apt-get clean && \
-      rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-CMD ["/sbin/my_init"]
+ENTRYPOINT ["/init"]
+COPY root /
+
+ADD https://github.com/just-containers/s6-overlay/releases/download/v1.17.2.0/s6-overlay-amd64.tar.gz /tmp/s6-overlay.tar.gz
+RUN tar xvfz /tmp/s6-overlay.tar.gz -C / && \
+useradd -u 911 -U -d /config -s /bin/false abc && \
+usermod -G users abc && \
+apt-get -q update && \
+apt-get install -qy dbus gdebi-core avahi-daemon wget curl && \
+PLEXURL=$(curl -s https://tools.linuxserver.io/latest-plex.json| grep "ubuntu64" | cut -d '"' -f 4) && \
+wget -P /tmp "$PLEXURL" && \
+gdebi -n /tmp/plexmediaserver_*_amd64.deb && \
+rm -f /tmp/plexmediaserver_*_amd64.deb && \
+apt-get clean &&rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+cp -v /default/plexmediaserver /etc/default/plexmediaserver

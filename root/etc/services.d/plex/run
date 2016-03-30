@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo "Starting Plex Media Server."
-exec s6-setuidgid abc /usr/sbin/start_pms

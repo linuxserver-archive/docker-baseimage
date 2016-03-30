@@ -5,7 +5,7 @@ ENTRYPOINT ["/init"]
 COPY root /
 ARG DEBIAN_FRONTEND="noninteractive" 
 
-RUN apt-get update && apt-get install -y curl python3-bs4 git-core nc && \
+RUN apt-get update && apt-get install -y curl python3-bs4 git-core netcat && \
 useradd -u 911 -U -d /config -s /bin/false abc && \
 usermod -G users abc && \
 mkdir -p /app/aptselect && \

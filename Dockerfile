@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 MAINTAINER lonix
 ENV HOME="/root" TERM="xterm"
 ENTRYPOINT ["/init"]

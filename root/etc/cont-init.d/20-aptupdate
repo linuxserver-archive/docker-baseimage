@@ -6,12 +6,12 @@
 [ "$APTLIST" ] || exit 0
 
 # run apt-select script to find fastest up to date mirror
-cd /defaults || exit
+cd /tmp || exit
 echo "Generating sources.list"
 apt-select -t 3 -m up-to-date
-[[ -f /defaults/sources.list ]] && mv /defaults/sources.list /etc/apt/sources.list
+mv /tmp/sources.list /etc/apt/sources.list
 
 # check for and install any updates
-echo "We are now refreshing packages from apt repositories, this *may* take a while"
+echo "Updateing Software from apt. Please be patient"
 apt-get update
 apt-get --only-upgrade install -yqq $APTLIST

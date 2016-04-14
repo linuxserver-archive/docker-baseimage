@@ -12,7 +12,7 @@ echo "
 -------------------------------------
           _     _ _
          | |___| (_) ___
-         | / __| | |/ _ \ 
+         | / __| | |/ _ \
          | \__ \ | | (_) |
          |_|___/ |_|\___/
                |_|
@@ -21,10 +21,16 @@ Brought to you by linuxserver.io
 We do accept donations at:
 https://www.linuxserver.io/donations
 -------------------------------------
-GID/UID
+    GID/UID
 -------------------------------------
 User uid:    $(id -u abc)
 User gid:    $(id -g abc)
+-------------------------------------
+    CONTAINER VERSION INFO
+-------------------------------------
+Build Date: "$LSIO_BUILD_DATE"
+Base ver: "$LSIO_VERSION_BASE"
+Image ver: "$LSIO_VERSION_IMAGE"
 -------------------------------------
 "
 mkdir -p /config && chown abc:abc /config

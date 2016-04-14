@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 MAINTAINER lonix
-ARG DEBIAN_FRONTEND="noninteractive"
+ARG DEBIAN_FRONTEND="noninteractive" LSIO_VERSION_BASE
 ENV HOME="/root" TERM="xterm" LSIO_VERSION_BASE=${LSIO_VERSION_BASE:-dev}
 ENTRYPOINT ["/init"]
 COPY root /

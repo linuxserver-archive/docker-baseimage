@@ -6,7 +6,7 @@ ENV HOME="/root" TERM="xterm" LSIO_VERSION_BASE=${LSIO_VERSION_BASE:-dev}
 ENTRYPOINT ["/init"]
 COPY root /
 
-RUN apt-get update && apt-get install -y curl python3-bs4 git-core lsb-release && \
+RUN apt-get update && apt-get install -y curl python3-bs4 netcat lsb-release && \
 useradd -u 911 -U -d /config -s /bin/false abc && \
 usermod -G users abc && \
 curl -L https://github.com/just-containers/s6-overlay/releases/download/v1.17.2.0/s6-overlay-amd64.tar.gz | tar xvz -C / && \

@@ -8,7 +8,7 @@
 # run apt-select script to find fastest up to date mirror
 cd /tmp || exit
 echo "Generating sources.list"
-python /usr/local/bin/aptselect.d/apt-select.py -t 3 -m up-to-date
+python3 /usr/local/bin/aptselect.d/apt-select.py -t 3 -m up-to-date
 mv /tmp/sources.list /etc/apt/sources.list
 
 # check for and install any updates

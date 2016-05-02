@@ -11,6 +11,7 @@ RUN useradd -u 911 -U -d /config -s /bin/false abc && \
       apt-get install -y python3-bs4 && \
       apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
       chmod +x /etc/my_init.d/*.sh && \
+      echo "Finalizing build" && \
       apt-get clean && \
       rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 CMD ["/sbin/my_init"]

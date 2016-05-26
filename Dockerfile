@@ -1,14 +1,11 @@
-FROM ubuntu:16.04
+FROM alpine:3.3
 MAINTAINER liunxserver.io
 ARG DEBIAN_FRONTEND="noninteractive"
-ARG LSIO_VERSION_BASE
-ENV HOME="/root" TERM="xterm" LSIO_VERSION_BASE=${LSIO_VERSION_BASE:-dev}
+ENV HOME="/root" TERM="xterm"
 ENTRYPOINT ["/init"]
 COPY root /
-
-RUN apt-get update && apt-get install -y curl python3-bs4 netcat lsb-release && \
-useradd -u 911 -U -d /config -s /bin/false abc && \
+RUN useradd -u 911 -U -d /config -s /bin/false abc && \
 usermod -G users abc && \
+apk add --no-cache bash curl tzdata tar && \
+apk add --no-cache --repository http://nl.alpinelinux.org/alpine/edge/testing shadow && \
 curl -L https://github.com/just-containers/s6-overlay/releases/download/v1.17.2.0/s6-overlay-amd64.tar.gz | tar xvz -C / && \
-mkdir -p /usr/local/bin/aptselect.d && curl -L https://github.com/jblakeman/apt-select/archive/v0.1.1.tar.gz | tar xvz -C /usr/local/bin/aptselect.d --strip-components=1 && \
-apt-get clean && rm -rfv /var/lib/apt/lists/* /tmp/* /var/tmp/*

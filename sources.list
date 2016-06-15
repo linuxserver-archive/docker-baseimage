@@ -5,7 +5,7 @@
 ####################################################################################
 
 deb http://mirrors.digitalocean.com/ubuntu/ trusty main restricted universe multiverse
-deb-src http://mirrors.digitalocean.com/ubuntu / trusty main restricted universe multiverse
+deb-src http://mirrors.digitalocean.com/ubuntu/ trusty main restricted universe multiverse
 deb http://mirrors.digitalocean.com/ubuntu/ trusty-updates main restricted universe multiverse
 deb-src http://mirrors.digitalocean.com/ubuntu/ trusty-updates main restricted universe multiverse
 

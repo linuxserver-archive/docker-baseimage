@@ -4,9 +4,12 @@
 #######  from your home.                                                     #######
 ####################################################################################
 
-deb http://apt.linuxserver.io/ubuntu/ trusty main restricted universe multiverse
-deb-src http://apt.linuxserver.io/ubuntu/ trusty main restricted universe multiverse
-deb http://apt.linuxserver.io/ubuntu/ trusty-updates main restricted universe multiverse
-deb-src http://apt.linuxserver.io/ubuntu/ trusty-updates main restricted universe multiverse
-deb http://apt.linuxserver.io/ubuntu/ trusty-security main restricted universe multiverse
-deb-src http://apt.linuxserver.io/ubuntu/ trusty-security main restricted universe multiverse
+deb http://mirrors.digitalocean.com/ubuntu/ trusty main restricted universe multiverse
+deb-src http://mirrors.digitalocean.com/ubuntu / trusty main restricted universe multiverse
+deb http://mirrors.digitalocean.com/ubuntu/ trusty-updates main restricted universe multiverse
+deb-src http://mirrors.digitalocean.com/ubuntu/ trusty-updates main restricted universe multiverse
+
+deb http://security.ubuntu.com/ubuntu/ trusty-security main restricted universe multiverse
+deb-src http://security.ubuntu.com/ubuntu/ trusty-security main restricted universe multiverse
+
+
